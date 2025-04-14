@@ -1,0 +1,13 @@
+int = 4btyes ,32 bits   
+char= 1btyes ,8bits
+boolean=1 bits
+float =8btyes ,32 bits
+double=8btyes ,32 bits
+##question section##
+1):what is difference between btyes and bits.
+2):How to data store in memory.
+3):what ASCII table.
+4):how to store nagtive number in memory.
+ans# 
+ .ignore the nagtive sign.
+.convert the binary number.
