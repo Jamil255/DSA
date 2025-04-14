@@ -86,4 +86,10 @@ const unionInterSection = (array1, array2) => {
 
 // console.log(unionInterSection([1, 2, 3], [3, 4]))
 
-
+// for (let i = 1; i < 5; i++) {
+//   for (let j = 1; j < 2; j++) {
+//     for (let k = 1; k < 5; k++) {
+//       console.log('i', i, 'j', j, 'k', k)
+//     }
+//   }
+// }
