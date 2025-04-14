@@ -31,8 +31,59 @@ const uniqueOccurs = (array) => {
   for (let a of array) {
     b[a] = b[a] + 1 || 1
   }
+  console.log(b)
 
   let uniqueFreq = new Set(Object.values(b))
   return uniqueFreq.size == Object.values(b).length
 }
-console.log(uniqueOccurs([1, 2, 3, 2, 1]))
+// console.log(uniqueOccurs([1, 2, 3, 2,2,1]))
+
+const findDuplicate287 = (array) => {
+  let ans = 0
+  for (let i = 0; i < array.length; i++) {
+    ans = ans ^ array[i]
+  }
+  for (let i = 1; i < array.length; i++) {
+    ans = ans ^ i
+  }
+  return ans
+}
+
+// console.log(findDuplicate287([1,2,3,4,1]));
+
+const findDuplicateArray = (array) => {
+  let frequency = {}
+  let repeated = []
+  for (let key of array) {
+    frequency[key] = frequency[key] + 1 || 1
+  }
+
+  for (let key in frequency) {
+    if (frequency[key] > 1) {
+      repeated.push(Number(key))
+    }
+  }
+  return repeated
+}
+
+// console.log(findDuplicateArray([1,2,3,4,4,4,3,2]));
+
+const unionInterSection = (array1, array2) => {
+  let temp = []
+  for (let i = 0; i < array1.length; i++) {
+    let element = array1[i]
+
+    for (let j = 0; j < array2.length; j++) {
+      if (element == array2[j]) {
+        temp.push(array2[j])
+        array2[j] = -2
+        break
+      }
+    }
+  }
+  return temp
+}
+
+// console.log(unionInterSection([1, 2, 3], [3, 4]))
+
+
