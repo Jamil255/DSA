@@ -13,7 +13,7 @@ const swapArray = (array) => {
 
 // console.log(swapArray([1,2,3,4,5,6]));
 
-const findUnique = (array) => {
+const findUniques = (array) => {
   for (let i = 0; i < array.length; i++) {
     let count = 0
     if (array[i] == array[i + 1]) {
@@ -93,3 +93,59 @@ const unionInterSection = (array1, array2) => {
 //     }
 //   }
 // }
+
+// find the duplicate in array
+
+const findDuplicateArrays = (array) => {
+  let temp = []
+  let h = {}
+  for (let key of array) {
+    h[key] = h[key] + 1 || 1
+  }
+
+  for (let key in h) {
+    if (h[key] > 1) {
+      temp.push(Number(key))
+    }
+  }
+  return temp
+}
+// console.log(findDuplicateArrays([1,2,3,4,3,4,2,34,44,34]));
+
+// find the unique number in the array
+
+const findUnique = (array) => {
+  let ans = 0
+  for (let i = 0; i < array.length; i++) {
+    ans = ans ^ array[i]
+  }
+  return ans
+}
+// console.log(findUnique([1,2,2,1,4]));
+
+// find the swapArray
+
+const swapArrays = (array) => {
+  for (let i = 0; i < array.length; i += 2) {
+    if (i + 1 < array.length) {
+      let start = array[i]
+      array[i] = array[i + 1]
+      array[i + 1] = start
+    }
+  }
+  return array
+}
+// console.log(swapArrays([1, 2, 3, 4, 5]))
+
+const findDup = (array) => {
+  let ans = 0
+  for (let i = 0; i < array.length; i++) {
+    ans = ans ^ array[i]
+  }
+  for (let i = 1; i < array.length; i++) {
+    ans = ans ^ i
+  }
+  return [ans]
+}
+
+// console.log(findDup([1,2,3,4,1]));
