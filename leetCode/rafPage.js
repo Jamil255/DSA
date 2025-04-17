@@ -215,4 +215,26 @@ const arraySort = (array) => {
   return array
 }
 
-console.log(arraySort([1, 0, 2, 0, 1, 0, 2]))
+// console.log(arraySort([1, 0, 2, 0, 1, 0, 2]))
+
+
+const arraySorteds = (array) => {
+    
+    let left = 0
+    let right = array.length - 1
+    while (left < right) {
+        while (array[left] == 0&&left<right) {
+            left++
+        }
+        while (array[right] == 1 &left<right) {
+            right--
+        }
+        if (left < right) {
+            [array[left], array[right]] = [array[right], array[left]]
+            left++
+            right--
+        }
+    }
+    return array
+}
+// console.log(arraySorteds([1,0,1,0,0,1,0,1]));
