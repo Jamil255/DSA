@@ -115,4 +115,44 @@ const binarySearch = (array, key) => {
   }
   return -1
 }
-console.log(binarySearch([2, 3, 4, 5, 6, 90], 90))
+// console.log(binarySearch([2, 3, 4, 5, 6, 90], 90))
+
+const bnarySearch = (array, key) => {
+  let start = 0
+  let end = array.length - 1
+  let mid = start + Math.floor((end - start) / 2)
+
+  while (start <= end) {
+    if (array[mid] == key) {
+      return mid
+    }
+    if (key > array[mid]) {
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
+    mid = start + Math.floor((end - start) / 2)
+  }
+  return -1
+}
+// console.log(bnarySearch([2,4,6,8,10],81));
+
+const arraySorted = (array) => {
+  let low = 0
+  let mid = 0
+  let high = array.length - 1
+  while (mid <= high) {
+    if (array[mid] == 1) {
+      mid++
+    } else if (array[mid] == 0) {
+      [array[low], array[mid]] = [array[mid], array[low]]
+      low++
+      mid++
+    } else {
+      ;[array[mid], array[high]] = [array[high], array[mid]]
+      high--
+    }
+  }
+  return array
+}
+// console.log(arraySorted([0, 1, 2, 1, 0, 0, 2, 1]))
