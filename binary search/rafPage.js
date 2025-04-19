@@ -258,4 +258,133 @@ const dutchNationalFlagAlgorithm = (arr) => {
   }
   return arr
 }
-console.log(dutchNationalFlagAlgorithm([2,1,2,1,2,1,0,0,1,0,0]))
+// console.log(dutchNationalFlagAlgorithm([2,1,2,1,2,1,0,0,1,0,0]))
+
+const pivetOfIndex = (array) => {
+  let sum = 0
+  let leftSum = 0
+  array.forEach((element) => {
+    sum += element
+  })
+
+  for (let i = 0; i < array.length; i++) {
+    let rightSum = sum - array[i] - leftSum
+
+    if (leftSum == rightSum) {
+      return i
+    }
+    leftSum += array[i]
+  }
+  return -1
+}
+// console.log(pivetOfIndex([1, 7, 3, 6, 5, 6]))
+
+const rewindPivot = (array) => {
+  let sum = 0
+  let leftSum = 0
+  array.forEach((ele) => (sum += ele))
+  for (let i = 0; i < array.length; i++) {
+    let rightSum = sum - array[i] - leftSum
+    if (leftSum == rightSum) return i
+    leftSum += array[i]
+  }
+  return -1
+}
+// console.log(rewindPivot([1, 7, 3, 6, 6, 5]))
+
+const rotatedArr = (array) => {
+  let start = 0
+  let end = array.length - 1
+  let mid = Math.floor((start + end) / 2)
+  while (start < end) {
+    if (array[mid] >= array[0]) {
+      start = mid + 1
+    } else {
+      end = mid
+    }
+    mid = Math.floor((start + end) / 2)
+  }
+  return start
+}
+// console.log(rotatedArr([7,9,1,2,3,4]))
+
+const firstOccurrnace = (array, key) => {
+  let start = 0
+  let end = array.length - 1
+  let mid = Math.floor((start + end) / 2)
+  let ans = -1
+  while (start <= end) {
+    if (array[mid] == key) {
+      ans = mid
+      end = mid - 1
+    } else if (key > array[mid]) {
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
+    mid = Math.floor((start + end) / 2)
+  }
+  return ans
+}
+// console.log(firstOccurrnace([2,3,4,5,6,6,7],6));
+
+const lastOccurrnace = (array, key) => {
+  let ans = -1
+  let start = 0
+  let end = array.length - 1
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2)
+    if (array[mid] == key) {
+      ans = mid
+      start = mid + 1
+    } else if (key > array[mid]) {
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
+  }
+  return ans
+}
+// console.log(lastOccurrnace([1,2,3,4,4,4,4,4,5],4));
+
+const numberOfOccurrnace = (array, key) => {
+  let first = firstOccurrnace(array, key)
+  let second = lastOccurrnace(array, key)
+  let occuarnace = second - first + 1
+  return occuarnace
+}
+// console.log(numberOfOccurrnace([1,2,2,2,3,4,5],2));
+
+const peakElement = (array) => {
+  let start = 0
+  let end = array.length - 1
+  let mid = Math.floor((start + end) / 2)
+  while (start < end) {
+    if (array[mid] < array[mid + 1]) {
+      start = mid + 1
+    } else {
+      end = mid
+    }
+    mid = Math.floor((start + end) / 2)
+  }
+  return start
+}
+// console.log(peakElement([0,2,1,0]))
+
+// find the duplicate in array
+
+const duplicateInArr = (array) => {
+    let temp=[]
+    let h = {}
+    for (const key of array) {
+        h[key]=h[key]+1||1
+    }
+
+    for (const key in h) {
+        if (h[key] > 1) {
+           temp.push(Number(key))
+       }
+    }
+    return temp
+}
+// console.log(duplicateInArr([3,3,4,4,5,5,2,7]));
