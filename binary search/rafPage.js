@@ -145,7 +145,7 @@ const arraySorted = (array) => {
     if (array[mid] == 1) {
       mid++
     } else if (array[mid] == 0) {
-      [array[low], array[mid]] = [array[mid], array[low]]
+      ;[array[low], array[mid]] = [array[mid], array[low]]
       low++
       mid++
     } else {
@@ -156,3 +156,106 @@ const arraySorted = (array) => {
   return array
 }
 // console.log(arraySorted([0, 1, 2, 1, 0, 0, 2, 1]))
+const leftOccurrnace = (array, key) => {
+  let start = 0
+  let end = array.length - 1
+  let mid = Math.floor((start + end) / 2)
+  let ans = -1
+  while (start <= end) {
+    if (array[mid] == key) {
+      ans = mid
+      end = mid - 1
+    } else if (key > array[mid]) {
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
+    mid = Math.floor((start + end) / 2)
+  }
+  return ans
+}
+
+const rightOccurrnace = (array, key) => {
+  let start = 0
+  let end = array.length - 1
+  let mid = Math.floor((start + end) / 2)
+  let ans = -1
+  while (start <= end) {
+    if (array[mid] == key) {
+      ans = mid
+      start = mid + 1
+    } else if (key > array[mid]) {
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
+    mid = Math.floor((start + end) / 2)
+  }
+  return ans
+}
+
+const findLeftAndRightOcc = (array, key) => {
+  let first = leftOccurrnace(array, key)
+  let second = rightOccurrnace(array, key)
+  return [first, second]
+}
+// console.log(findLeftAndRightOcc([7,7,7,7,7,8,9,10],7))
+
+const peakElementOfMountain = (array) => {
+  let start = 0
+  let end = array.length - 1
+  let mid = Math.floor((start + end) / 2)
+  while (start < end) {
+    if (array[mid] < array[mid + 1]) {
+      start = mid + 1
+    } else {
+      end = mid
+    }
+    mid = Math.floor((start + end) / 2)
+  }
+  return start
+}
+// console.log(peakElementOfMountain([0,1,0]));
+// sort array 01
+const arraySorts = (array) => {
+  let left = 0
+  let right = array.length - 1
+  while (left < right) {
+    while (array[left] == 0) {
+      left++
+    }
+    while (array[right] == 1) {
+      right--
+    }
+
+    if (left < right) {
+      ;[array[left], arr[right]] = [array[right], array[left]]
+      left++
+      right--
+    }
+  }
+  return array
+}
+// console.log(arraySort([1,0,1,0,1,1,0,0,1,0]));
+
+// dutch national flag algorithm
+
+const dutchNationalFlagAlgorithm = (arr) => {
+  let low = 0
+  let mid = 0
+  let high = arr.length - 1
+  while (mid <= high) {
+    if (arr[mid] == 1) {
+      mid++
+    } else if (arr[mid] == 0) {
+      ;[arr[low], arr[mid]] = [arr[mid], arr[low]]
+      low++
+      mid++
+    } else {
+      ;[arr[mid], arr[high]] = [arr[high], arr[mid]]
+      high--
+    }
+  }
+  return arr
+}
+console.log(dutchNationalFlagAlgorithm([2,1,2,1,2,1,0,0,1,0,0]))

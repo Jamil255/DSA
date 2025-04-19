@@ -13,4 +13,4 @@ const peakElementOfMountain = (array) => {
     }
     return start
 }
-// console.log(peakElementOfMountain([0,1,0]));    
+console.log(peakElementOfMountain([0,1,0]));    
