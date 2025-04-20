@@ -374,17 +374,91 @@ const peakElement = (array) => {
 // find the duplicate in array
 
 const duplicateInArr = (array) => {
-    let temp=[]
-    let h = {}
-    for (const key of array) {
-        h[key]=h[key]+1||1
-    }
+  let temp = []
+  let h = {}
+  for (const key of array) {
+    h[key] = h[key] + 1 || 1
+  }
 
-    for (const key in h) {
-        if (h[key] > 1) {
-           temp.push(Number(key))
-       }
+  for (const key in h) {
+    if (h[key] > 1) {
+      temp.push(Number(key))
     }
-    return temp
+  }
+  return temp
 }
 // console.log(duplicateInArr([3,3,4,4,5,5,2,7]));
+
+const findPivot = (array) => {
+  let start = 0
+  let end = array.length - 1
+
+  while (start < end) {
+    let mid = Math.floor((start + end) / 2)
+    if (array[mid] >= array[0]) {
+      start = mid + 1
+    } else {
+      end = mid
+    }
+  }
+  return end
+}
+
+const search = (array, start, end, key) => {
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2)
+    if (array[mid] == key) {
+      return mid
+    } else if (key > array[mid]) {
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
+  }
+  return -1
+}
+
+const searchInRotatedArr = (array, key) => {
+  let pivot = findPivot(array)
+  if (key >= array[pivot] && key <= array[array.length - 1]) {
+    return search(array, pivot, array.length - 1, key)
+  } else {
+    return search(array, 0, pivot - 1, key)
+  }
+}
+// console.log(searchInRotatedArr([5,1,3], 1
+
+
+const squareRoot = (num) => {
+
+return num*num
+}
+// console.log(squareRoot(10));
+
+const binarySearchSqrt = (num) => {
+    let start = 0
+    let end = num
+    let ans = -1
+  
+    while (start <= end) {
+      let mid = Math.floor((start + end) / 2)
+      let square = mid * mid
+  
+      if (square == num) {
+        return mid
+      }
+  
+      if (square < num) {
+        ans = mid 
+        start = mid + 1
+      } else {
+        end = mid - 1
+      }
+    }
+  
+    return ans
+  }
+  
+  console.log(binarySearchSqrt(100))
+//   console.log(binarySearchSqrt(10))
+  
