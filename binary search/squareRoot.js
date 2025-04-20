@@ -57,4 +57,18 @@ const searchInRotatedArr = (array, key) => {
     return binarySearch(array, 0, pivot - 1, key)
   }
 }
-console.log(searchInRotatedArr([7,8,9,0,1,2,3,4],0));
+// console.log(searchInRotatedArr([7,8,9,0,1,2,3,4],0));
+
+const getIndexOfPivot = (array) => {
+  let sum = 0
+  let leftSum = 0
+  array.forEach((element) => (sum += element))
+  for (let i = 0; i < array.length; i++) {
+    let rightSum = sum - array[i] - leftSum
+    if (leftSum == rightSum) return i
+    leftSum += array[i]
+  }
+  return -1
+}
+
+// console.log(getIndexOfPivot([1,3,7,8,5,6]));

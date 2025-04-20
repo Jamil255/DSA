@@ -428,37 +428,48 @@ const searchInRotatedArr = (array, key) => {
 }
 // console.log(searchInRotatedArr([5,1,3], 1
 
-
 const squareRoot = (num) => {
-
-return num*num
+  return num * num
 }
 // console.log(squareRoot(10));
 
 const binarySearchSqrt = (num) => {
-    let start = 0
-    let end = num
-    let ans = -1
-  
-    while (start <= end) {
-      let mid = Math.floor((start + end) / 2)
-      let square = mid * mid
-  
-      if (square == num) {
-        return mid
-      }
-  
-      if (square < num) {
-        ans = mid 
-        start = mid + 1
-      } else {
-        end = mid - 1
-      }
+  let start = 0
+  let end = num
+  let ans = -1
+
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2)
+    let square = mid * mid
+
+    if (square == num) {
+      return mid
     }
-  
-    return ans
+
+    if (square < num) {
+      ans = mid
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
   }
-  
-  console.log(binarySearchSqrt(100))
+
+  return ans
+}
+
+// console.log(binarySearchSqrt(100))
 //   console.log(binarySearchSqrt(10))
-  
+
+const getIndexOfPivot = (array) => {
+  let sum = 0
+  let leftSum = 0
+  array.forEach((ele) => (sum += ele))
+  for (let i = 0; i < array.length; i++) {
+    let rightSum = sum - array[i] - leftSum
+    if (leftSum == rightSum) return i
+    leftSum += array[i]
+  }
+
+  return -1
+}
+// console.log(getIndexOfPivot([1, 7, 3, 6, 5, 6]))
