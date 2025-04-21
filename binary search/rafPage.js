@@ -473,3 +473,51 @@ const getIndexOfPivot = (array) => {
   return -1
 }
 // console.log(getIndexOfPivot([1, 7, 3, 6, 5, 6]))
+
+const getPivot = (array) => {
+  let sum = 0
+  let leftSum = 0
+  array.forEach((ele) => (sum += ele))
+  for (let i = 0; i < array.length; i++) {
+    let rightSum = sum - array[i] - leftSum
+    if (leftSum == rightSum) return i
+    leftSum += array[i]
+  }
+  return -1
+}
+// console.log(getPivot([1, 3, 7, 9, 5, 6]))
+const isPossible = (array, std, mid) => {
+  let stdCount = 1
+  let pageSum = 0
+  for (let i = 0; i < array.length; i++) {
+    if (pageSum + array[i] <= mid) {
+      pageSum += array[i]
+    } else {
+      stdCount++
+      if (stdCount > std || array[i] > mid) return false
+      pageSum = 0
+      pageSum += array[i]
+    }
+  }
+  return true
+}
+
+const bookAllocation = (array, std) => {
+  let start = 0
+  let sum = 0
+  let ans = -1
+  array.forEach((ele) => (sum += ele))
+  let end = sum
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2)
+    if (isPossible(array, std, mid)) {
+      ans = mid
+      end = mid - 1
+    } else {
+      start = mid + 1
+    }
+  }
+  return ans
+}
+
+// console.log(bookAllocation([10,20,30,40],2));
