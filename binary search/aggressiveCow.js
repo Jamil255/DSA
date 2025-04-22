@@ -31,4 +31,4 @@ const aggressiveCow = (array, cow) => {
   }
   return ans
 }
-console.log(aggressiveCow([1, 2, 6, 4, 3], 2))
+// console.log(aggressiveCow([1, 2, 6, 4, 3], 2))
