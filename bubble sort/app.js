@@ -14,7 +14,7 @@ const bubbleSort = (array) => {
 console.log(bubbleSort([3, 2, 1, 6, 5, 4]))
 
 const selectionSort = (array) => {
-  let swap = false
+
   for (let i = 0; i < array.length; i++) {
     let minIndex = i
     for (let j = i + 1; j < array.length; j++) {
