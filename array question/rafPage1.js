@@ -190,4 +190,4 @@ const sumOfTwoArray = (arr1, m, arr2, n) => {
   }
   return ans.reverse()
 }
-console.log(sumOfTwoArray([1,2,3,4],4,[6],1))
+// console.log(sumOfTwoArray([1,2,3,4],4,[6],1))
