@@ -155,7 +155,60 @@ const rotatedArray = (array, k) => {
   let tempArr = []
   for (let i = 0; i < array.length; i++) {
     tempArr[(i + k) % array.length] = array[i]
-    }
-    return tempArr
+  }
+  return tempArr
 }
 // console.log(rotatedArray([1,2,3,4,5,6],2))
+const avoidFloat = (num) => {
+  return Math.floor(num / 10)
+}
+const avoid = (num) => {
+  return Math.floor(num % 10)
+}
+
+const reverseArr = (array) => {
+  let start = 0
+  let end = array.length - 1
+  while (start <= end) {
+    ;[array[start], array[end]] = [array[end], array[start]]
+    start++
+    end--
+  }
+  return array
+}
+const sumOfTwoArray = (arr1, m, arr2, n) => {
+  let i = m - 1
+  let j = n - 1
+  let carry = 0
+  let tempArr = []
+  while (i >= 0 && j >= 0) {
+    let sum = arr1[i] + arr2[j] + carry
+    carry = avoidFloat(sum)
+    sum = avoid(sum)
+    tempArr.push(sum)
+    j--
+    i--
+  }
+
+  while (i >= 0) {
+    let sum = arr1[i] + carry
+    carry = avoidFloat(sum)
+    sum = avoid(sum)
+    tempArr.push(sum)
+    i--
+  }
+  while (j >= 0) {
+    let sum = arr2[j] + carry
+    carry = avoidFloat(sum)
+    sum = avoid(sum)
+    tempArr.push(sum)
+  }
+  while (carry !== 0) {
+    let sum = carry
+    carry = avoidFloat(sum)
+    sum = avoid(sum)
+    tempArr.push(sum)
+  }
+  return reverseArr(tempArr)
+}
+console.log(sumOfTwoArray([1, 2, 3, 4], 4, [6], 1))
