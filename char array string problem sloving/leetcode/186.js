@@ -4,7 +4,6 @@ const reverse = (s, start, end) => {
     start++
     end--
   }
-  return s
 }
 
 const reverseWordII = (s) => {

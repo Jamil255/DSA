@@ -1,4 +1,4 @@
-const reverseString = (str) => {
+const reverseStrings = (str) => {
   let splitStr = str.split('')
   let start = 0
   let end = splitStr.length - 1
@@ -27,12 +27,54 @@ const isPallidrome = (str) => {
 const revereWord = (s) => {
   let str = s.trim().split(/\s+/)
   let start = 0
-    let end = str.length - 1
-    while (start <= end) {
-        [str[start], str[end]] = [str[end], str[start]]
-        start++
-        end--
-    }
-    return str.join(' ')
+  let end = str.length - 1
+  while (start <= end) {
+    ;[str[start], str[end]] = [str[end], str[start]]
+    start++
+    end--
+  }
+  return str.join(' ')
 }
-console.log(revereWord('hello  world'))
+// console.log(revereWord('hello  world'))
+
+const reverse = (s, start, end) => {
+  while (start < end) {
+    ;[s[start], s[end]] = [s[end], s[start]]
+    start++
+    end--
+  }
+}
+
+const reverseStr = (s) => {
+  // step 1: reverse the entire array
+  reverse(s, 0, s.length - 1)
+
+  // step 2: reverse the each world in the array
+  let start = 0
+  for (let end = 0; end <= s.length; end++) {
+    if (s[end] === ' ' || end === s.length) {
+      reverse(s, start, end - 1)
+      start = end + 1
+    }
+  }
+  return s
+}
+console.log(
+  reverseStr([
+    't',
+    'h',
+    'e',
+    ' ',
+    's',
+    'k',
+    'y',
+    ' ',
+    'i',
+    's',
+    ' ',
+    'b',
+    'l',
+    'u',
+    'e',
+  ])
+)
