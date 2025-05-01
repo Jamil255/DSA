@@ -57,13 +57,37 @@ const noOfOccurStr = (str) => {
 }
 // console.log(noOfOccurStr('codeswfiters'))
 
-
-const permatationStr = (str,part) => {
-    while (str.length !== 0 && str.indexOf(part) !== -1) {
-        str=str.replace(part,'')
-    }
-    return str
+const permatationStr = (str, part) => {
+  while (str.length !== 0 && str.indexOf(part) !== -1) {
+    str = str.replace(part, '')
+  }
+  return str
 }
 // console.log(permatationStr('abcd','abw'))
 
+const compression = (str) => {
+  let n = str.length
+  let index = 0
+  for (let i = 0; i < n; i++) {
+    let count = 0
+    let ch = str[i]
+    while (i < n && str[i] === ch) {
+      count++
+      i++
+    }
+    str[index++] = ch
+    if (count > 1) {
+      str[index++] = ch
+      let toStr = count.toString()
+      for (const key of toStr) {
+        str[index++] = key
+      }
+    }
+    i--
+  }
+  str.length = index
+  console.log(str)
+  return index
+}
 
+console.log(compression(['a', 'b', 'c', 'c']))

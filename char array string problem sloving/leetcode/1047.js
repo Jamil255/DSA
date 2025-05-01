@@ -6,4 +6,4 @@ const str1047 = (str) => {
     }
     return stack.join('')
 }
-console.log(str1047('zxxyy'))
+// console.log(str1047('zxxyy'))
