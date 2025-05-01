@@ -1,7 +1,6 @@
 const wave = (array) => {
   let ans = []
   for (let col = 0; col < array.length; col++) {
-    console.log(array[col])
     if (col & 1) {
       // bottom to top
       for (let row = array.length - 1; row >= 0; row--) {
