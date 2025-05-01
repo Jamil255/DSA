@@ -58,3 +58,12 @@ const noOfOccurStr = (str) => {
 // console.log(noOfOccurStr('codeswfiters'))
 
 
+const permatationStr = (str,part) => {
+    while (str.length !== 0 && str.indexOf(part) !== -1) {
+        str=str.replace(part,'')
+    }
+    return str
+}
+// console.log(permatationStr('abcd','abw'))
+
+
