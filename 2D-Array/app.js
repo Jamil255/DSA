@@ -1,3 +1,4 @@
+
 const wavePrint = (array) => {
   let ans = []
   for (let i = 0; i < array.length; i++) {
