@@ -24,3 +24,4 @@ const leetCode1207 = (array) => {
 }
 
 console.log(leetCode1207([1, 2, 2, 1]))
+console.log("-------------------")
