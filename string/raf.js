@@ -10,7 +10,7 @@ const reverseStr = (str) => {
   return splitStr.join('')
 }
 
-// console.log(reverseStr("360XpertSolution"));
+// console.log(reverseStr('360XpertSolution'))
 
 const findFreq = (str) => {
   let h = {}
@@ -105,24 +105,55 @@ const hello = (str) => {
   console.log(words)
   const a = words.map((word) => word.split('').reverse().join(''))
   console.log(a)
-return a.join(' ')
+  return a.join(' ')
 }
 
 // console.log(hello('Mr Ding'))
 
 const str1047 = (s) => {
-    let stack = []
-    for (const char of s) {
-        stack[stack.length-1]===char?stack.pop():stack.push(char)
-    }
-    return stack.join('')
+  let stack = []
+  for (const char of s) {
+    stack[stack.length - 1] === char ? stack.pop() : stack.push(char)
+  }
+  return stack.join('')
 }
-// console.log(str1047('abbaca'));
+// console.log(str1047('ca'));
 
 const subStr = (s, p) => {
-    while (s.length !== 0 && s.indexOf(p) !== -1) {
-        s=s.replace(p,' ')
-    }
-return s
+  while (s.length !== 0 && s.indexOf(p) !== -1) {
+    s = s.replace(p, ' ')
+  }
+  return s
 }
-console.log(subStr('abcbd','abc'));
+// console.log(subStr('abcbd', 'abc'))
+
+const swapArray = (array) => {
+  for (let i = 0; i < array.length - 1; i += 2) {
+    ;[array[i], array[i + 1]] = [array[i + 1], array[i]]
+  }
+  return array
+}
+
+// console.log(swapArray([1, 2, 3, 4]))
+
+const isPrime = (num) => {
+  if (num <= 1) return false
+  if (num % i == 0) return false
+  return true
+}
+//console.log(isPrime(11));//
+
+const productOfDigit = (n) => {
+  let product = 1
+  let sum = 0
+  while (n !== 0) {
+    let digit = n % 10
+    console.log(digit)
+    product = product * digit
+    sum = sum + digit
+    n = Math.floor(n / 10)
+  }
+  let answer = product - sum
+  return answer
+}
+console.log(productOfDigit(456))

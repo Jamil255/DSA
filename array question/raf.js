@@ -98,3 +98,17 @@ const findUniques = (array) => {
 }
 // console.log(findUnique([1,2,3,4,3,4,2,5,1]));
 
+const arraySort = (array) => {
+  for (let i = 1; i < array.length; i++) {
+    let isSwap = false
+    for (let j = 0; j < array.length - i; j++) {
+      if (array[j] > array[j + 1]) {
+        ;[array[j], array[j + 1]] = [array[j + 1], array[j]]
+        isSwap = true
+      }
+    }
+    if (!isSwap) break
+  }
+  return array
+}
+console.log(arraySort([1, 4, 3, 2, 1, 5, 6, 8, 7]))
