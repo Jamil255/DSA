@@ -33,6 +33,6 @@ const traverseArray = (array, start) => {
     }
     return array
 }
-// console.log(traverseArray([1,2,3,4,5,6],2))
+console.log(traverseArray([1,2,3,4,5,6],2))
 
 

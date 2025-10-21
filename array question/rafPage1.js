@@ -191,3 +191,15 @@ const sumOfTwoArray = (arr1, m, arr2, n) => {
   return ans.reverse()
 }
 // console.log(sumOfTwoArray([1,2,3,4],4,[6],1))
+
+const zeroMove = (array) => {
+  let nonZero = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== 0) {
+      ;[array[i], array[nonZero]] = [array[nonZero], array[i]]
+      nonZero++
+    }
+  }
+  return array
+}
+console.log(zeroMove([0, 0, 0, 1, 2, 3, 0, 4, 0, 0, 0]))

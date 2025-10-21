@@ -99,27 +99,27 @@
 // // console.log(traverseArr([1, 2, 3, 4, 5, 6], 1))
 // // merger two arrays
 
-// const merges = (arr1, arr2) => {
-//   let tempArr = []
-//   let i = 0
-//   let j = 0
-//   let k = 0
-//   while (i < arr1.length && j < arr2.length) {
-//     if (arr1[i] < arr2[j]) {
-//       tempArr[k++] = arr1[i++]
-//     } else {
-//       tempArr[k++] = arr2[j++]
-//     }
-//   }
-//   while (i < arr1.length) {
-//     tempArr[k++] = arr1[i++]
-//   }
-//   while (j < arr2.length) {
-//     tempArr[k++] = arr2[j++]
-//   }
-//   return tempArr
-// }
-// // console.log(merges([1,2,6,7],[3,4,5]))
+const merges = (arr1, arr2) => {
+  let tempArr = []
+  let i = 0
+  let j = 0
+  let k = 0
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      tempArr[k++] = arr1[i++]
+    } else {
+      tempArr[k++] = arr2[j++]
+    }
+  }
+  while (i < arr1.length) {
+    tempArr[k++] = arr1[i++]
+  }
+  while (j < arr2.length) {
+    tempArr[k++] = arr2[j++]
+  }
+  return tempArr
+}
+console.log(merges([1,2,6,7],[3,4,5]))
 
 const mergeSortArray = (arr1, m, arr2, n) => {
   let i = m - 1
@@ -211,4 +211,4 @@ const sumOfTwoArray = (arr1, m, arr2, n) => {
   }
   return reverseArr(tempArr)
 }
-console.log(sumOfTwoArray([1, 2, 3, 4], 4, [6], 1))
+// console.log(sumOfTwoArray([1, 2, 3, 4], 4, [6], 1))

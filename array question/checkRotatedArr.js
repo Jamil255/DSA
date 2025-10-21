@@ -1,6 +1,7 @@
 const rotatedArray = (array) => {
   let count = 0
-  for (let i = 1; i < array.length; i++) {
+    for (let i = 1; i < array.length; i++) {
+
     if (array[i - 1] > array[i]) {
       count++
     }
@@ -9,4 +10,4 @@ const rotatedArray = (array) => {
   return count <= 1
 }
 
-// console.log(rotatedArray([3, 4, 5, 6, 1, 2]))
+console.log(rotatedArray([3, 4, 5, 6, 1, 2]))
