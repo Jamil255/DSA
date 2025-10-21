@@ -86,8 +86,7 @@ const compression = (str) => {
     i--
   }
   str.length = index
-  console.log(str)
   return index
 }
 
-console.log(compression(['a', 'b', 'c', 'c']))
+console.log(compression(['a', 'b', 'c', 'd','c']))

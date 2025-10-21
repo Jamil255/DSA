@@ -26,7 +26,9 @@ const isPallidrome = (str) => {
 // console.log(isPallidrome('noon'))
 
 const revereWord = (s) => {
-  let str = s.trim().split(/\s+/)
+let str=s.trim().split(" ")
+    // let str = s.trim().split(/\s+/)
+    console.log(str);
   let start = 0
   let end = str.length - 1
   while (start <= end) {
@@ -48,12 +50,14 @@ const reverse = (s, start, end) => {
 
 const reverseStr = (s) => {
   // step 1: reverse the entire array
-  reverse(s, 0, s.length - 1)
+    reverse(s, 0, s.length - 1)
+    console.log(s);
 
   // step 2: reverse the each world in the array
   let start = 0
   for (let end = 0; end <= s.length; end++) {
-    if (s[end] === ' ' || end === s.length) {
+      if (s[end] === ' ' || end === s.length) {
+        // console.log(s,'============================');
       reverse(s, start, end - 1)
       start = end + 1
     }

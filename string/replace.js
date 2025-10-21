@@ -10,3 +10,4 @@ const replaceStr = (str) => {
   return str
 }
 console.log(replaceStr('my name is jami afzal'))
+
