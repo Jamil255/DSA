@@ -47,4 +47,4 @@ const findUnique = (array) => {
   }
   return temp
 }
-console.log(findUnique([1, 2, 3, 4, 4, 3]))
+// console.log(findUnique([1, 2, 3, 4, 4, 3]))
