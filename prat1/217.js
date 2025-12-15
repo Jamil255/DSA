@@ -5,14 +5,14 @@ const findDuplicate = (nums) => {
   }
   console.log(h)
   for (let key in h) {
-    if (h[key] >= 1) {
+    if (h[key] > 1) {
       return true
     }
   }
   return false
 }
-
-// console.log(findDuplicate([0]))
+// 
+console.log(findDuplicate([0]))
 
 const method2 = (nums) => {
   nums.sort((a, b) => a - b)
