@@ -13,4 +13,4 @@ const subArray = (nums) => {
   return maxSum
 }
 
-console.log(subArray([1]))
+// console.log(subArray([1]))

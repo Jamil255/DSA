@@ -87,4 +87,41 @@ const subArray = (nums) => {
   return maxSum
 }
 
-console.log(subArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+// console.log(subArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+
+const problemSubArray = (nums) => {
+  let maxSum = nums[0]
+  let currSum = 0
+
+  for (let i = 0; i < nums.length; i++) {
+    currSum = nums[i] + currSum
+    if (currSum > maxSum) {
+      maxSum = currSum
+    }
+    if (currSum < 0) {
+      currSum = 0
+    }
+  }
+  return maxSum
+}
+
+// console.log(problemSubArray([1,2,3,-7,3]))
+
+const binarySearch = (nums, key) => {
+  let start = 0
+  let end = nums.length - 1
+  let mid = Math.floor((start + end) / 2)
+  while (start <= end) {
+    if (nums[mid] == key) {
+      return mid
+    }
+    if (key > nums[mid]) {
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
+    mid = Math.floor((start + end) / 2)
+  }
+  return -1
+}
+// console.log(binarySearch([1,2,3,4,5,6],6))
