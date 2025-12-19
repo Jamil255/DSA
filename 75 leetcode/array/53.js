@@ -14,3 +14,20 @@ const subArray = (nums) => {
 }
 
 // console.log(subArray([1]))
+
+const searchInRotated = (nums) => {
+  let start = 0
+  let end = nums.length - 1
+  let mid = Math.floor((start + end) / 2)
+  while (start < end) {
+    if (nums[mid] > nums[end]) {
+      start = mid + 1
+    } else {
+      end = mid
+    }
+    mid = Math.floor((start + end) / 2)
+  }
+  return nums[end]
+}
+
+console.log(searchInRotated([5, 6, 7, 8, 1, 2, 3, 4]))

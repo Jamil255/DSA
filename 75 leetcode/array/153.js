@@ -38,3 +38,29 @@ const findTwoProduct = (nums) => {
   return answer
 }
 // console.log(findTwoProduct([1,2,3,4]))
+
+const findTheDuplicate = (nums) => {
+  nums.sort((a, b) => a - b)
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] == nums[i - 1]) return true
+  }
+  return false
+}
+// console.log(findTheDuplicate([2,12,3,4,5,2]))
+
+const searchInRotatedArr = (nums) => {
+  let left = 0
+  let right = nums.length - 1
+  let mid = Math.floor((left + right) / 2)
+  while (left < right) {
+    if (nums[mid] > nums[right]) {
+      left = mid + 1
+    } else {
+      right = mid
+    }
+    mid = Math.floor((left + right) / 2)
+  }
+  return nums[left]
+}
+
+console.log(searchInRotatedArr([5, 6, 7, 8, 1, 2]))

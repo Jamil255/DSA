@@ -125,3 +125,22 @@ const binarySearch = (nums, key) => {
   return -1
 }
 // console.log(binarySearch([1,2,3,4,5,6],6))
+
+const pro152 = (nums) => {
+  let currentMax = nums[0]
+  let currentMin = nums[0]
+  let maxGlobal = nums[0]
+  for (let i = 1; i < nums.length; i++) {
+    let num = nums[i]
+    if (num < 0) {
+      let temp = currentMax
+      currentMax = currentMin
+      currentMin = temp
+    }
+    currentMax = Math.max(num, currentMax * num)
+    currentMin = Math.min(num, currentMin * num)
+    maxGlobal = Math.max(maxGlobal, currentMax)
+  }
+  return maxGlobal
+}
+console.log(pro152([1,2,3,-8,-6]))
