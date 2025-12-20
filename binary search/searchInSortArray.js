@@ -12,6 +12,7 @@ const getPivot = (array) => {
   }
   return start
 }
+// console.log(getPivot([7,8,9,0,1,2]))
 
 const binarySearch = (array, key, start, end) => {
   let mid = Math.floor((start + end) / 2)
@@ -30,7 +31,8 @@ const binarySearch = (array, key, start, end) => {
 }
 
 const searchInRotatedArray = (array, key) => {
-  let pivot = getPivot(array)
+    let pivot = getPivot(array)
+    console.log(pivot)
   
   if (key >= array[pivot] && key <= array.length - 1) {
     return binarySearch(array, key, pivot, array.length - 1)
@@ -39,4 +41,4 @@ const searchInRotatedArray = (array, key) => {
   }
 }
 
-console.log(searchInRotatedArray([7, 9, 10, 11, 2, 3, 4], 12))
+// console.log(searchInRotatedArray([7, 9, 10, 11, 2, 3, 4], 12))

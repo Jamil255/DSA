@@ -111,7 +111,7 @@ const binarySearch = (nums, key) => {
   let start = 0
   let end = nums.length - 1
   let mid = Math.floor((start + end) / 2)
-  while (start <= end) {
+  while (start < end) {
     if (nums[mid] == key) {
       return mid
     }
