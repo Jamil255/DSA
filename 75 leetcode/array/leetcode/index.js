@@ -255,3 +255,37 @@ const searchInRotatedArray = (nums, target) => {
 
 // console.log(searchInRotatedArray([4, 5, 6, 7, 0, 1, 2], 3))
 
+const waterMostContainer = (nums) => {
+  let maxArea = 0
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      let width = j - i
+      let height = Math.min(nums[i], nums[j])
+      let area = width * height
+      maxArea = Math.max(area, maxArea)
+    }
+  }
+  return maxArea
+}
+
+// console.log(waterMostContainer([1, 1]))
+
+const twoPointerApproach = (nums) => {
+  let start = 0
+  let end = nums.length - 1
+  let maxVal = 0
+  while (start < end) {
+    let width = end - start
+    let height = Math.min(nums[start], nums[end])
+    let area = width * height
+    maxVal = Math.max(area, maxVal)
+    if (nums[start] < nums[end]) {
+      start++
+    } else {
+      end--
+    }
+  }
+  return maxVal
+}
+
+console.log(twoPointerApproach([1, 1]))
