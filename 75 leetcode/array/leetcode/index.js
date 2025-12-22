@@ -288,4 +288,4 @@ const twoPointerApproach = (nums) => {
   return maxVal
 }
 
-console.log(twoPointerApproach([1, 1]))
+// console.log(twoPointerApproach([1, 1]))
