@@ -37,7 +37,7 @@ const searchInRotatedArray = (nums, key) => {
   }
 }
 
-// console.log(searchInRotatedArray([4, 5, 6, 7, 8, 1, 2, 3], 5))
+console.log(searchInRotatedArray([4,5,6,7,0,1,2],0))
 
 const waterMostContainer = (nums) => {
   let maxArea = 0
